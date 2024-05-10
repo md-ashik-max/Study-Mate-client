@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
 const Navbar = () => {
@@ -10,7 +10,7 @@ const Navbar = () => {
 
     </>
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 h-32">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -31,17 +31,8 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                {/* The button to open modal */}
-                <label htmlFor="my_modal_7" className="btn btn-outline btn-info">Login</label>
-
-                {/* Put this part before </body> tag */}
-                <input type="checkbox" id="my_modal_7" className="modal-toggle" />
-                <div className="modal" role="dialog">
-                    <div className="modal-box w-11/12 max-w-4xl">
-                        
-                    </div>
-                    <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
-                </div>
+               
+            <Link to='/login'><button className="btn btn-outline btn-info">Login</button></Link>
             </div>
         </div>
     );
