@@ -51,7 +51,6 @@ const Register = () => {
             })
             .catch(error => {
                 setRegisterError(error.message)
-                // toast.error("Oops! Email Already Registered")
             })
 
     }
