@@ -1,10 +1,42 @@
 import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import 'animate.css';
+import { AiFillEyeInvisible } from "react-icons/ai";
+import { IoEyeSharp } from "react-icons/io5";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
+import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 //  bg-gradient-to-r from-[#E2E2E2] to-[#C9D6FF]
 
 
 const Login = () => {
+    const { signIn} = useContext(AuthContext);
+    const [showPassword, setShowPassword] = useState(false);
+    const location = useLocation()
+    const navigate = useNavigate()
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const onSubmit = data => {
+        const email = data.email;
+        const password = data.password;
+        signIn(email, password)
+            .then(() => {
+                Swal.fire({
+                    icon: "success",
+                    title: "Sign in User Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                  navigate(location?.state ? location.state : "/")
+            })
+            .catch(error => {
+                console.error(error)
+                toast.error(error.message)
+            })
+
+    };
     return (
         <div className="flex flex-col my-12 md:flex-row justify-center items-center max-w-5xl mx-auto rounded-2xl shadow-2xl">
             <div className="animate__animated animate__fadeInRight card shrink-0 w-full md:w-1/2 py-6 bg-base-100">
@@ -19,32 +51,38 @@ const Login = () => {
                     <p>or use your email password</p>
                 </div>
 
-                <form className="card-body">
+                <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input type="email" placeholder="email" className="input input-bordered" required />
+                        <input type="email" placeholder="Email" name="email" className="input input-bordered" {...register("email", { required: true })} />
+                        {errors.email && <span className="text-red-500">This field is required</span>}
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" placeholder="password" className="input input-bordered" required />
+                        <div className="relative">
+                            {showPassword ? <span className="absolute right-2 top-4 text-xl" onClick={() => setShowPassword(!showPassword)}><IoEyeSharp /></span> : <span className="absolute right-2 top-4 text-xl" onClick={() => setShowPassword(!showPassword)}><AiFillEyeInvisible /></span>}
+                            <input type={showPassword ? "text" : "password"} placeholder="password" name="password" className="input input-bordered w-full" {...register("password", { required: true })} />
+                        </div>
+                        {errors.password && <span className="text-red-500">This field is required</span>}
                         <label className="label">
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>
                     </div>
-                    <div className="form-control mt-6">
-                    <input className="btn bg-transparent text-emerald-300 border border-sky-400 hover:text-white  hover:bg-gradient-to-r from-emerald-300 to-sky-400" type="submit" value="Login" />
+                    <div className="form-control">
+                        <button className="btn bg-transparent text-emerald-300 border border-sky-400 hover:text-white  hover:bg-gradient-to-r from-emerald-300 to-sky-400">Login</button>
                     </div>
                 </form>
             </div>
             <div className="animate__animated animate__fadeInRight md:ml-12 w-full h-full py-6  md:py-56 flex flex-col items-center bg-[#512DA8] rounded-r-2xl rounded-t-3xl md:rounded-l-[150px] text-white text-center">
-                    <h3 className="text-4xl font-bold">Hello Friend!</h3>
-                    <p className="my-6">Register with your personal details to use all <br /> of site features</p>
-                    <Link to='/register'><button className="btn bg-gradient-to-r from-emerald-300 to-sky-400 text-white">Register</button></Link>
+                <h3 className="text-4xl font-bold">Hello Friend!</h3>
+                <p className="my-6">Register with your personal details to use all <br /> of site features</p>
+                <Link to='/register'><button className="btn bg-gradient-to-r from-emerald-300 to-sky-400 text-white">Register</button></Link>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };
