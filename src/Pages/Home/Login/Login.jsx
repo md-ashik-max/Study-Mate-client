@@ -6,8 +6,8 @@ import 'animate.css';
 
 const Login = () => {
     return (
-        <div className="flex flex-col md:flex-row justify-center items-center max-w-5xl mx-auto rounded-2xl shadow-2xl">
-            <div className="animate__animated animate__fadeInRight card shrink-0 md:w-1/2 py-6 bg-base-100">
+        <div className="flex flex-col my-12 md:flex-row justify-center items-center max-w-5xl mx-auto rounded-2xl shadow-2xl">
+            <div className="animate__animated animate__fadeInRight card shrink-0 w-full md:w-1/2 py-6 bg-base-100">
                 <div className="flex flex-col items-center">
                     <h3 className="text-3xl font-bold">Login</h3>
                     <div className="flex gap-8 text-xl my-6">
@@ -36,14 +36,14 @@ const Login = () => {
                         </label>
                     </div>
                     <div className="form-control mt-6">
-                        <input type="submit" value="Login" />
+                    <input className="btn bg-transparent text-emerald-300 border border-sky-400 hover:text-white  hover:bg-gradient-to-r from-emerald-300 to-sky-400" type="submit" value="Login" />
                     </div>
                 </form>
             </div>
-            <div className="animate__animated animate__fadeInRight md:ml-12 w-full h-full  md:py-56 flex flex-col items-center bg-gradient-to-r from-emerald-300 to-sky-400 rounded-r-2xl rounded-t-3xl md:rounded-l-[150px] text-center">
+            <div className="animate__animated animate__fadeInRight md:ml-12 w-full h-full py-6  md:py-56 flex flex-col items-center bg-[#512DA8] rounded-r-2xl rounded-t-3xl md:rounded-l-[150px] text-white text-center">
                     <h3 className="text-4xl font-bold">Hello Friend!</h3>
-                    <p>Register with your personal details to use all <br /> of site features</p>
-                    <Link to='/register'><button className="btn btn-outline btn-info">Register</button></Link>
+                    <p className="my-6">Register with your personal details to use all <br /> of site features</p>
+                    <Link to='/register'><button className="btn bg-gradient-to-r from-emerald-300 to-sky-400 text-white">Register</button></Link>
             </div>
         </div>
     );

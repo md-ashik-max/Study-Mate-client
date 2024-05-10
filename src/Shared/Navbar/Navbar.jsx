@@ -32,7 +32,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                
-            <Link to='/login'><button className="btn btn-outline btn-info">Login</button></Link>
+            <Link to='/login'><button className="btn bg-transparent text-emerald-300 border border-sky-400 hover:text-white  hover:bg-gradient-to-r from-emerald-300 to-sky-400">Login</button></Link>
             </div>
         </div>
     );
