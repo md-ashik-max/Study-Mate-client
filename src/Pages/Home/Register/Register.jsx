@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 
 
 const Register = () => {
-    const { createUser} = useContext(AuthContext);
+    const { createUser,updateUserProfile} = useContext(AuthContext);
     const [registerError, setRegisterError] = useState('');
     const [showPassword,setShowPassword]=useState(false);
     const location = useLocation()
@@ -17,8 +17,8 @@ const Register = () => {
     const onSubmit = data => {
         const email = data.email;
         const password = data.password;
-        // const fullName = data.fullName;
-        // const image = data.image;
+        const fullName = data.fullName;
+        const image = data.image;
 
         if (password.length < 6) {
             setRegisterError('Password should be at least 6 characters or longer');
@@ -40,13 +40,17 @@ const Register = () => {
         setRegisterError('')
         createUser(email, password)
             .then(() => {
-                Swal.fire({
-                    icon: "success",
-                    title: "Created User Successfully",
-                    showConfirmButton: false,
-                    timer: 1500
-                  });
-                navigate(location?.state ? location.state : "/")
+                updateUserProfile(fullName, image)
+                    .then(() => {
+                        navigate(location?.state ? location.state : "/")
+                        Swal.fire({
+                            icon: "success",
+                            title: "Created User Successfully",
+                            showConfirmButton: false,
+                            timer: 1500
+                          });
+
+                    })
 
             })
             .catch(error => {
