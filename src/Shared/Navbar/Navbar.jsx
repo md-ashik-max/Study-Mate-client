@@ -5,13 +5,21 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import userProfile from '../../assets/image.png';
+import Swal from "sweetalert2";
 
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const handleLogOut = () => {
         logOut()
-            .then(toast.success("user log out successfully"))
+            .then(()=>{
+                Swal.fire({
+                    icon: "success",
+                    title: "Log Out User Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            })
             .catch(error => {
                 console.error(error)
                 toast.error(error.massage)
@@ -21,7 +29,14 @@ const Navbar = () => {
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/assignments">Assignments</NavLink></li>
-        <li><NavLink to="/assignments">Register</NavLink></li>
+        {
+            user ?
+                <li><NavLink to="/create">Create Assignments</NavLink></li>:''
+            
+        }
+        {
+            user?<li><NavLink to="/pending">Pending Assignments</NavLink></li>:''
+        }
 
     </>
     return (

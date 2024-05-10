@@ -13,7 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
-    const { signIn} = useContext(AuthContext);
+    const { signIn,googleLogin,githubLogin} = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
     const location = useLocation()
     const navigate = useNavigate()
@@ -37,15 +37,42 @@ const Login = () => {
             })
 
     };
+
+    const loginWithGoogle = () => {
+        googleLogin();
+          navigate(location?.state ? location.state : "/")
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Sign in User Successfully",
+            showConfirmButton: false,
+            timer: 1500
+          });
+
+    };
+    const loginWithGithub = () => {
+        githubLogin();
+        Swal.fire({
+            icon: "success",
+            title: "Sign in User Successfully",
+            showConfirmButton: false,
+            timer: 1500
+          });
+          navigate(location?.state ? location.state : "/")
+
+    };
+
+
+
     return (
         <div className="flex flex-col my-12 md:flex-row justify-center items-center max-w-5xl mx-auto rounded-2xl shadow-2xl">
             <div className="animate__animated animate__fadeInRight card shrink-0 w-full md:w-1/2 py-6 bg-base-100">
                 <div className="flex flex-col items-center">
                     <h3 className="text-3xl font-bold">Login</h3>
                     <div className="flex gap-8 text-xl my-6">
-                        <button className="btn"><FaGoogle></FaGoogle></button>
-                        <button className="btn"><FaFacebookF></FaFacebookF></button>
-                        <button className="btn"><FaGithub></FaGithub></button>
+                        <button onClick={() => loginWithGoogle()} className="btn bg-transparent text-emerald-300 border border-sky-400 hover:text-white  hover:bg-gradient-to-r from-emerald-300 to-sky-400"><FaGoogle></FaGoogle></button>
+                        <button className="btn bg-transparent text-emerald-300 border border-sky-400 hover:text-white  hover:bg-gradient-to-r from-emerald-300 to-sky-400"><FaFacebookF></FaFacebookF></button>
+                        <button onClick={() => loginWithGithub()} className="btn bg-transparent text-emerald-300 border border-sky-400 hover:text-white  hover:bg-gradient-to-r from-emerald-300 to-sky-400"><FaGithub></FaGithub></button>
 
                     </div>
                     <p>or use your email password</p>
