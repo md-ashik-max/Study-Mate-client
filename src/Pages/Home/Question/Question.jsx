@@ -5,7 +5,7 @@ import { IoCall } from "react-icons/io5";
 
 const Question = () => {
     return (
-        <div className="my-12">
+        <div className="my-12 max-w-7xl mx-6 lg:mx-auto">
             <div className="text-center">
                 <h3 className="text-xl font-bold text-sky-400">STUDY MATE QUERIES</h3>
                 <h1 className="font-playFair text-4xl font-bold">Frequently Asked Questions</h1>
@@ -98,7 +98,7 @@ const Question = () => {
 
                 </div>
                 <div>
-                    <div className="card w-96 bg-gradient-to-r from-[#84CEEB] to-[#8860B0] shadow-xl">
+                    <div className="card bg-gradient-to-r from-[#84CEEB] to-[#8860B0] shadow-xl">
                         <figure className="px-10 pt-10">
                             <img src="https://i.ibb.co/zrHjTPz/smiley-woman.jpg" alt="Shoes" className="rounded-xl" />
                         </figure>
@@ -106,28 +106,28 @@ const Question = () => {
                             <h2 className="font-raleway text-white text-2xl font-bold">Need Support?</h2>
                             <p className="text-white py-4">Facing issues? Contact us for assistance. We are here to help you succeed!</p>
                             <div className="card-actions">
-                                <div className="flex flex-col items-center bg-transparent border border-sky-400 text-white bg-[#2E9CCA] p-2 rounded-2xl">
+                                <div className="flex flex-col items-center hover:bg-transparent border border-sky-400 text-white bg-[#2E9CCA] p-2 rounded-2xl">
                                     <button className="text-3xl"><BiSolidMessageRounded></BiSolidMessageRounded></button>
                                     <p className="font-bold">Contact Us</p>
                                 </div>
-                                <div className="flex flex-col items-center bg-transparent border border-sky-400 text-white bg-[#17E9E0] p-2 px-6 rounded-2xl">
+                                <div className="flex flex-col items-center hover:bg-transparent border border-sky-400 text-white bg-[#17E9E0] p-2 px-6 rounded-2xl">
                                     <button className="text-3xl"><IoCall /></button>
                                     <p className="font-bold">Call Us</p>
                                 </div>
-                                <div className="flex flex-col items-center bg-transparent border border-[#5680E9] text-white bg-[#5680E9] p-2 rounded-2xl">
+                                <div className="flex flex-col items-center hover:bg-transparent border border-[#5680E9] text-white bg-[#5680E9] p-2 rounded-2xl">
                                     <button className="text-3xl"><FaVideo /></button>
                                     <p className="font-bold">Video Call</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="card w-96 bg-[#77A6F7] text-neutral-content mt-6">
+                    <div className="card bg-[#77A6F7] text-neutral-content mt-6">
                         <div className="card-body items-center text-center">
                             <h2 className="text-2xl font-bold text-white font-raleway">Download Our App</h2>
                             <p className="text-white py-4">Take learning on the go. Download our app for seamless access anytime, anywhere!</p>
                             <div className="flex gap-6 items-center">
                                <img className="w-1/2" src="https://i.ibb.co/090kyKq/1664287128google-play-store-logo-png.webp" alt="" />
-                               <img className="w-1/2 h-12" src="https://i.ibb.co/s3z4ntX/app-store-logo-C6-E5-D2-A3-EF-seeklogo-com.png" alt="" />
+                               <img className="w-1/2" src="https://i.ibb.co/s3z4ntX/app-store-logo-C6-E5-D2-A3-EF-seeklogo-com.png" alt="" />
                             </div>
                         </div>
                     </div>

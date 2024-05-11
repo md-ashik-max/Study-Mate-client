@@ -7,7 +7,7 @@ import SubFooter from "../Shared/Footer/SubFooter";
 const Main = () => {
     return (
         <div>
-            <div className="max-w-7xl mx-auto">
+            <div>
                 <Navbar></Navbar>
                 <Outlet></Outlet>
 

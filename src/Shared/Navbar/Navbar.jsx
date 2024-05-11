@@ -27,20 +27,22 @@ const Navbar = () => {
     }
 
     const links = <>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/assignments">Assignments</NavLink></li>
+        <li className="font-bold"><NavLink to="/">Home</NavLink></li>
+        <li className="font-bold"><NavLink to="/assignments">Assignments</NavLink></li>
         {
             user ?
-                <li><NavLink to="/create">Create Assignments</NavLink></li>:''
+                <li className="font-bold"><NavLink to="/create">Create Assignments</NavLink></li>:''
             
         }
         {
-            user?<li><NavLink to="/pending">Pending Assignments</NavLink></li>:''
+            user?<li className="font-bold"><NavLink to="/pending">Pending Assignments</NavLink></li>:''
         }
+         <li className="font-bold"><NavLink to="/about">About Us</NavLink></li>
+         <li className="font-bold"><NavLink to="/contact">Contact Us</NavLink></li>
 
     </>
     return (
-        <div className="navbar bg-base-100 h-32">
+        <div className="navbar h-32 relative z-[10] max-w-7xl mx-auto">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -50,12 +52,12 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <div className="flex md:flex-col items-center">
+                <div className="absolute ml-12 lg:ml-0 flex md:flex-col items-center">
                     <img className="h-16 w-16" src="https://i.ibb.co/TgMVs48/student.png" alt="" />
                     <h3 className="text-2xl font-bold">Study Mate</h3>
                 </div>
             </div>
-            <div className="navbar-center hidden lg:flex">
+            <div className="navbar-center hidden lg:flex z-[10]">
                 <ul className="menu menu-horizontal px-1">
                     {links}
                 </ul>
@@ -76,7 +78,7 @@ const Navbar = () => {
 
                     </div>
                         :
-                        <Link to='/login'><button className="btn bg-transparent text-emerald-300 border border-sky-400 hover:text-white  hover:bg-gradient-to-r from-emerald-300 to-sky-400">Login</button></Link>
+                        <Link to='/login'><button className="btn border border-sky-400 hover:text-white bg-gradient-to-r from-emerald-300 to-sky-400">Login</button></Link>
 
 
 
