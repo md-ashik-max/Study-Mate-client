@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Home/Login/Login";
 import Register from "../Pages/Home/Register/Register";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import CreateAssignment from "../Pages/Home/CreateAssignment/CreateAssignment";
 
 
 
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
         {
             path:'/register',
             element:<Register></Register>
+        },
+        {
+          path:'/create',
+          element:<CreateAssignment></CreateAssignment>
         }
       ]
     },
