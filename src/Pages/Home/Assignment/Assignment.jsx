@@ -6,21 +6,21 @@ import { useState } from "react";
 
 const Assignment = () => {
     const loadedAssignment = useLoaderData();
-    const[assignments,setAssignments]=useState(loadedAssignment);
+    const [assignments, setAssignments] = useState(loadedAssignment);
     const handleAssignmentFilter = filter => {
         if (filter === 'all') {
             setAssignments(loadedAssignment);
         }
         else if (filter === 'easy') {
-            const filteredAssignments = loadedAssignment.filter(assignment => assignment.level==='Easy');
+            const filteredAssignments = loadedAssignment.filter(assignment => assignment.level === 'Easy');
             setAssignments(filteredAssignments);
         }
         else if (filter === 'medium') {
-            const filteredAssignments = loadedAssignment.filter(assignment => assignment.level==='Medium');
+            const filteredAssignments = loadedAssignment.filter(assignment => assignment.level === 'Medium');
             setAssignments(filteredAssignments);
         }
-        else if(filter==='hard'){
-            const filteredAssignments = loadedAssignment.filter(assignment => assignment.level==='Hard');
+        else if (filter === 'hard') {
+            const filteredAssignments = loadedAssignment.filter(assignment => assignment.level === 'Hard');
             setAssignments(filteredAssignments);
         }
 
@@ -63,6 +63,8 @@ const Assignment = () => {
                     assignments.map(assignment => <AssignmentCard
                         key={assignment._id}
                         assignment={assignment}
+                        assignments={assignments}
+                        setAssignments={setAssignments}
                     ></AssignmentCard>)
                 }
             </div>

@@ -1,11 +1,56 @@
 import PropTypes from "prop-types";
-import { FaPencil } from "react-icons/fa6";
+import { useContext } from "react";
+import { FaEdit } from "react-icons/fa";
 import { MdDateRange, MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
-// <p>{description.slice(0, 50)}...</p>
+import Swal from "sweetalert2";
+import { AuthContext } from "../../../providers/AuthProvider";
 
-const AssignmentCard = ({ assignment }) => {
-    const { title, image, description, mark, date, level } = assignment;
+const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
+    const { user } = useContext(AuthContext)
+    const { _id, title, image, description, mark, date, level, email } = assignment;
+    const handleDelete = id => {
+        console.log(id)
+        if (user.email === email) {
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    fetch(`http://localhost:5000/assignment/${id}`, {
+                        method: 'DELETE'
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data)
+                            if (data.deletedCount > 0) {
+                                Swal.fire({
+                                    title: "Deleted!",
+                                    text: "Your file has been deleted.",
+                                    icon: "success"
+                                });
+                                const remaining = assignments.filter(assignment => assignment._id !== id);
+                                setAssignments(remaining)
+                            }
+                        })
+
+                }
+            });
+        } else {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "You can not delete this"
+            });
+        }
+    }
+
     return (
         <div className="card bg-base-100 shadow-xl relative">
             <figure><img className="h-64 w-full" src={image} alt="" /></figure>
@@ -22,11 +67,13 @@ const AssignmentCard = ({ assignment }) => {
                     </div>
                     <p className="my-4">{description.slice(0, 100)}...</p>
                     <div className="w-full flex gap-6 items-center">
-                        <button className="btn text-xl text-[#14A76C] border-[#14A76C] bg-transparent hover:bg-[#14A76C] hover:text-white"><FaPencil /></button>
+                        <Link to={`/updateAssignment/${_id}`}>
+                            <button className="btn text-xl text-[#14A76C] border-[#14A76C] bg-transparent hover:bg-[#14A76C] hover:text-white"><FaEdit /></button>
+                        </Link>
 
-                        <Link><button className="btn px-12 bg-transparent text-emerald-300 border border-sky-400 hover:text-white  hover:bg-gradient-to-r from-emerald-300 to-sky-400">View Assignment</button></Link>
+                        <Link to={`/assignmentDetails/${_id}`}><button className="btn px-12 bg-transparent text-emerald-300 border border-sky-400 hover:text-white  hover:bg-gradient-to-r from-emerald-300 to-sky-400">View Assignment</button></Link>
 
-                        <button className="btn text-xl text-[#C50900] bg-transparent border-[#C50900] hover:bg-[#C50900] hover:text-white"><MdDelete /></button>
+                        <button onClick={() => handleDelete(_id)} className="btn text-xl text-[#C50900] bg-transparent border-[#C50900] hover:bg-[#C50900] hover:text-white"><MdDelete /></button>
                     </div>
 
                 </div>
@@ -40,5 +87,7 @@ const AssignmentCard = ({ assignment }) => {
 
 export default AssignmentCard;
 AssignmentCard.propTypes = {
-    assignment: PropTypes.object
+    assignment: PropTypes.object,
+    assignments: PropTypes.any.isRequired,
+    setAssignments: PropTypes.func.isRequired
 }
