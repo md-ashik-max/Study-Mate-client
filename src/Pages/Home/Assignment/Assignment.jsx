@@ -1,10 +1,31 @@
 import { useLoaderData } from "react-router-dom";
 import AssignmentCard from "./AssignmentCard";
 import { FaAngleDown } from "react-icons/fa";
+import { useState } from "react";
 
 
 const Assignment = () => {
     const loadedAssignment = useLoaderData();
+    const[assignments,setAssignments]=useState(loadedAssignment);
+    const handleAssignmentFilter = filter => {
+        if (filter === 'all') {
+            setAssignments(loadedAssignment);
+        }
+        else if (filter === 'easy') {
+            const filteredAssignments = loadedAssignment.filter(assignment => assignment.level==='Easy');
+            setAssignments(filteredAssignments);
+        }
+        else if (filter === 'medium') {
+            const filteredAssignments = loadedAssignment.filter(assignment => assignment.level==='Medium');
+            setAssignments(filteredAssignments);
+        }
+        else if(filter==='hard'){
+            const filteredAssignments = loadedAssignment.filter(assignment => assignment.level==='Hard');
+            setAssignments(filteredAssignments);
+        }
+
+    }
+
     return (
         <div className="-mt-32">
             <div className="relative">
@@ -27,10 +48,10 @@ const Assignment = () => {
                     <div className="dropdown dropdown-end">
                         <div tabIndex={0} role="button" className="btn m-1 bg-transparent"><FaAngleDown className="text-xl font-bold"></FaAngleDown></div>
                         <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><a>All</a></li>
-                            <li><a>Easy</a></li>
-                            <li><a>Medium</a></li>
-                            <li><a>Hard</a></li>
+                            <li onClick={() => handleAssignmentFilter('all')}><a>All</a></li>
+                            <li onClick={() => handleAssignmentFilter('easy')}><a>Easy</a></li>
+                            <li onClick={() => handleAssignmentFilter('medium')}><a>Medium</a></li>
+                            <li onClick={() => handleAssignmentFilter('hard')}><a>Hard</a></li>
                         </ul>
                     </div>
                 </div>
@@ -39,7 +60,7 @@ const Assignment = () => {
 
             <div className="max-w-7xl mx-auto my-16 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {
-                    loadedAssignment.map(assignment => <AssignmentCard
+                    assignments.map(assignment => <AssignmentCard
                         key={assignment._id}
                         assignment={assignment}
                     ></AssignmentCard>)
