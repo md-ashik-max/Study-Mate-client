@@ -7,6 +7,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import CreateAssignment from "../Pages/Home/CreateAssignment/CreateAssignment";
 import Assignment from "../Pages/Home/Assignment/Assignment";
 import AssignmentDetails from "../Pages/Home/AssignmentDetails/AssignmentDetails";
+import UpdateAssignment from "../Pages/Home/UpdateAssignment/UpdateAssignment";
 
 
 
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
         {
             path:'/assignmentDetails/:id',
             element:<AssignmentDetails></AssignmentDetails>,
+            loader:({ params })=>fetch(`http://localhost:5000/assignment/${params.id}`)
+        },
+        {
+            path:'/updateAssignment/:id',
+            element:<UpdateAssignment></UpdateAssignment>,
             loader:({ params })=>fetch(`http://localhost:5000/assignment/${params.id}`)
         },
         {
