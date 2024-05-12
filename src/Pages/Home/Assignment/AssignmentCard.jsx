@@ -1,9 +1,11 @@
 import PropTypes from "prop-types";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { FaEdit } from "react-icons/fa";
 import { MdDateRange, MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import Aos from "aos";
+import 'aos/dist/aos.css';
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
@@ -50,9 +52,12 @@ const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
             });
         }
     }
+    useEffect(()=>{
+        Aos.init()
+    },[])
 
     return (
-        <div className="card bg-base-100 shadow-xl relative">
+        <div data-aos="zoom-in" className="card bg-base-100 shadow-xl relative">
             <figure><img className="h-64 w-full" src={image} alt="" /></figure>
             <div className="flex justify-between px-4 pt-4">
                 <p className="text-xl font-bold">Mark : {mark}</p>
