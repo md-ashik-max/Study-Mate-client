@@ -28,7 +28,7 @@ const Navbar = () => {
 
     const links = <>
         <li className="font-bold"><NavLink to="/">Home</NavLink></li>
-        <li className="font-bold"><NavLink to="/assignments">Assignments</NavLink></li>
+        <li className="font-bold"><NavLink to="/assignment">Assignments</NavLink></li>
         {
             user ?
                 <li className="font-bold"><NavLink to="/create">Create Assignments</NavLink></li>:''
@@ -54,7 +54,7 @@ const Navbar = () => {
                 </div>
                 <div className="absolute ml-12 lg:ml-0 flex md:flex-col items-center">
                     <img className="h-16 w-16" src="https://i.ibb.co/TgMVs48/student.png" alt="" />
-                    <h3 className="text-2xl font-bold">Study Mate</h3>
+                    <h3 className="text-2xl font-extrabold font-playFair">Study <span className="text-[#3D52A0]">Mate</span></h3>
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex z-[10]">
