@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const GiveMarkContainer = () => {
     const loadedSubmit = useLoaderData();
     const { user } = useContext(AuthContext);
     const { _id } = loadedSubmit;
-    console.log(_id)
     const handleGivenMark = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -25,14 +25,30 @@ const GiveMarkContainer = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    alert('mark given')
+                    Swal.fire({
+                        title: "Mark has been successfully given.",
+                        showClass: {
+                          popup: `
+                            animate__animated
+                            animate__fadeInUp
+                            animate__faster
+                          `
+                        },
+                        hideClass: {
+                          popup: `
+                            animate__animated
+                            animate__fadeOutDown
+                            animate__faster
+                          `
+                        }
+                      });
 
                 }
             })
 
     }
     return (
-        <div>
+        <div className="max-w-5xl mx-auto shadow-2xl rounded-xl p-6 my-24">
             <form onSubmit={handleGivenMark} className="flex flex-col space-y-8">
                 <div className="form-control">
                     <label className="label">

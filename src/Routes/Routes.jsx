@@ -10,6 +10,8 @@ import AssignmentDetails from "../Pages/Home/AssignmentDetails/AssignmentDetails
 import UpdateAssignment from "../Pages/Home/UpdateAssignment/UpdateAssignment";
 import PendingAssignment from "../Pages/Home/PendingAssignment/PendingAssignment";
 import GiveMarkContainer from "../Pages/Home/GiveMarkContainer/GiveMarkContainer";
+import MySubmission from "../Pages/Home/Register/MySubmission/MySubmission";
+import PrivetRoute from "../route/PrivetRoute";
 
 
 
@@ -50,17 +52,22 @@ const router = createBrowserRouter([
       },
       {
         path: '/create',
-        element: <CreateAssignment></CreateAssignment>
+        element: <PrivetRoute><CreateAssignment></CreateAssignment></PrivetRoute>,
       },
       {
         path: '/pending',
-        element: <PendingAssignment></PendingAssignment>,
+        element: <PrivetRoute><PendingAssignment></PendingAssignment></PrivetRoute>,
         loader: () => fetch('http://localhost:5000/submitted')
       },
       {
         path: '/giveMark/:id',
         element: <GiveMarkContainer></GiveMarkContainer>,
         loader: ({ params }) => fetch(`http://localhost:5000/submitted/${params.id}`)
+      },
+      {
+        path: '/mySubmission',
+        element: <MySubmission></MySubmission>,
+        loader: () => fetch('http://localhost:5000/submitted')
       },
     ]
   },

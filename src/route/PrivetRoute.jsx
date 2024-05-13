@@ -6,14 +6,13 @@ import Lottie from 'lottie-react';
 import loadingSpinner from '../Animation - 1715372410361.json';
 
 const PrivetRoute = ({ children }) => {
-    const { user, loader } = useContext(AuthContext);
+    const { user, loading } = useContext(AuthContext);
     const location = useLocation()
-    if (loader) {
-        return <div className='max-h-screen className="flex justify-center items-center"'>
-            <div className="w-52 h-52">
-                <Lottie animationData={loadingSpinner}></Lottie>
-            </div>
+    if (loading) {
+        return <div className='flex justify-center items-center'>
+             <Lottie className=" w-52 h-52" animationData={loadingSpinner}></Lottie>
         </div>
+
     }
 
     if (user) {

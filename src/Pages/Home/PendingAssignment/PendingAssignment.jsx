@@ -8,7 +8,7 @@ const PendingAssignment = () => {
     const [submitAssignment,setSubmitAssignment]=useState(loadedSubmittedAssignment);
     
     return (
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto bg-gradient-to-r from-[#5AB9EA] to-[#C1C4E8] p-6 rounded-xl shadow-2xl my-24">
 
             <div className="overflow-x-auto">
                 <table className="table">
@@ -16,7 +16,6 @@ const PendingAssignment = () => {
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Image</th>
                             <th>Name</th>
                             <th>Title</th>
                             <th>Mark</th>
