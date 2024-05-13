@@ -12,13 +12,13 @@ const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const handleLogOut = () => {
         logOut()
-            .then(()=>{
+            .then(() => {
                 Swal.fire({
                     icon: "success",
                     title: "Log Out User Successfully",
                     showConfirmButton: false,
                     timer: 1500
-                  });
+                });
             })
             .catch(error => {
                 console.error(error)
@@ -31,14 +31,17 @@ const Navbar = () => {
         <li className="font-bold"><NavLink to="/assignment">Assignments</NavLink></li>
         {
             user ?
-                <li className="font-bold"><NavLink to="/create">Create Assignments</NavLink></li>:''
-            
+                <li className="font-bold"><NavLink to="/create">Create Assignments</NavLink></li> : ''
+
         }
         {
-            user?<li className="font-bold"><NavLink to="/pending">Pending Assignments</NavLink></li>:''
+            user ? <li className="font-bold"><NavLink to="/pending">Pending Assignments</NavLink></li> : ''
         }
-         <li className="font-bold"><NavLink to="/about">About Us</NavLink></li>
-         <li className="font-bold"><NavLink to="/contact">Contact Us</NavLink></li>
+        {
+            user ? <li className="font-bold"><NavLink to="/submittedAssignment">My Submitted Assignment</NavLink></li> : ''
+        }
+        {/* <li className="font-bold"><NavLink to="/about">About Us</NavLink></li>
+        <li className="font-bold"><NavLink to="/contact">Contact Us</NavLink></li> */}
 
     </>
     return (

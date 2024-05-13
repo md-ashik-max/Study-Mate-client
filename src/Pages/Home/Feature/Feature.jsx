@@ -1,5 +1,4 @@
-// https://i.ibb.co/MVVNGQc/teacher.jpg
-// https://i.ibb.co/gDmpmLc/handsUp.jpg
+
 import Aos from "aos";
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
