@@ -9,6 +9,7 @@ import Assignment from "../Pages/Home/Assignment/Assignment";
 import AssignmentDetails from "../Pages/Home/AssignmentDetails/AssignmentDetails";
 import UpdateAssignment from "../Pages/Home/UpdateAssignment/UpdateAssignment";
 import PendingAssignment from "../Pages/Home/PendingAssignment/PendingAssignment";
+import GiveMarkContainer from "../Pages/Home/GiveMarkContainer/GiveMarkContainer";
 
 
 
@@ -55,7 +56,12 @@ const router = createBrowserRouter([
         path: '/pending',
         element: <PendingAssignment></PendingAssignment>,
         loader: () => fetch('http://localhost:5000/submitted')
-      }
+      },
+      {
+        path: '/giveMark/:id',
+        element: <GiveMarkContainer></GiveMarkContainer>,
+        loader: ({ params }) => fetch(`http://localhost:5000/submitted/${params.id}`)
+      },
     ]
   },
 ]);
