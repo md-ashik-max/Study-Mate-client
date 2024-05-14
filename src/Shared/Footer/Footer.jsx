@@ -3,7 +3,7 @@ import { FaFacebookF, FaGithub, FaGoogle, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <footer className="footer items-center p-10 bg-gradient-to-r from-[#E2E2E2] to-[#C9D6FF] text-base-content">
+        <footer className="footer items-center p-10 bg-gradient-to-r from-[#E2E2E2] to-[#C9D6FF] text-black">
             <aside>
                 <img className="h-16 w-16" src="https://i.ibb.co/TgMVs48/student.png" alt="" />
                 <h3 className="text-2xl font-bold font-playFair">Study Mate</h3>

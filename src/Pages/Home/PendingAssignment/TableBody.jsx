@@ -28,7 +28,7 @@ const TableBody = ({ assignment, index, submitAssignment, setSubmitAssignment })
 
     return (
         <tr>
-            <th>{index + 1}</th>
+            <th>{index+1}</th>
             <td className="text-xl font-bold">{name}</td>
             <td className="text-xl font-bold">{assignmentName}</td>
             <td className="text-xl font-bold">{assignmentMark}</td>

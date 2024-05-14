@@ -42,7 +42,7 @@ const Assignment = () => {
                 <h1 className="text-4xl font-extrabold font-playFair">Assignment Universe</h1>
                 <p className="mt-6"> Explore a galaxy of tasks and projects designed to challenge and inspire. From academic pursuits to professional endeavors, find everything you need to excel and achieve your goals. Welcome to your ultimate assignment destination</p>
             </div>
-            <div className="max-w-7xl mx-auto flex justify-end border-t-2 mb-12">
+            <div className="max-w-7xl mx-6 md:mx-12 lg:mx-auto flex justify-end border-t-2 mb-12">
                 <div className="border-x-2 border-b-2 flex justify-between items-center w-52 rounded-xl p-2">
                     <h3 className="font-playFair font-extrabold">Select Level</h3>
                     <div className="dropdown dropdown-end">
@@ -58,7 +58,7 @@ const Assignment = () => {
 
             </div>
 
-            <div className="max-w-7xl mx-auto my-16 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <div className="max-w-7xl mx-6 md:mx-12 lg:mx-auto my-16 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {
                     assignments.map(assignment => <AssignmentCard
                         key={assignment._id}

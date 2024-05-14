@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { IoEyeSharp } from "react-icons/io5";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -8,11 +8,16 @@ import Swal from "sweetalert2";
 
 
 const Register = () => {
-    const { createUser,updateUserProfile} = useContext(AuthContext);
+    const { user, loading, createUser, updateUserProfile } = useContext(AuthContext);
     const [registerError, setRegisterError] = useState('');
-    const [showPassword,setShowPassword]=useState(false);
-    const location = useLocation()
-    const navigate = useNavigate()
+    const [showPassword, setShowPassword] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (user) {
+            navigate('/')
+        }
+    }, [user, navigate])
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         const email = data.email;
@@ -24,13 +29,13 @@ const Register = () => {
             setRegisterError('Password should be at least 6 characters or longer');
             return;
         }
-        else if (!/[A-Z]/.test (password)){
+        else if (!/[A-Z]/.test(password)) {
             setRegisterError("Password must contain at least one uppercase letter."
             );
             return;
 
         }
-        else if (!/[a-z]/.test (password)){
+        else if (!/[a-z]/.test(password)) {
             setRegisterError("Password must contain at least one lowercase letter."
             );
             return;
@@ -48,7 +53,7 @@ const Register = () => {
                             title: "Created User Successfully",
                             showConfirmButton: false,
                             timer: 1500
-                          });
+                        });
 
                     })
 
@@ -59,6 +64,8 @@ const Register = () => {
 
     }
 
+    if (user || loading) return
+
     return (
         <div className="flex flex-col my-12 md:flex-row justify-center items-center max-w-5xl mx-auto rounded-2xl shadow-2xl">
             <div className="animate__animated animate__fadeInRight w-full h-full py-6  md:py-[244px] flex flex-col items-center bg-[#512DA8] rounded-r-2xl rounded-t-3xl md:rounded-r-[150px] text-center text-white">
@@ -66,7 +73,7 @@ const Register = () => {
                 <p className="my-6">Enter your personal details to use all <br /> of site features</p>
                 <Link to='/login'><button className="btn bg-gradient-to-r from-emerald-300 to-sky-400 text-white">Login</button></Link>
             </div>
-            <div className="animate__animated animate__fadeInRight card shrink-0 md:w-1/2 py-6 bg-base-100">
+            <div className="animate__animated animate__fadeInRight card shrink-0 w-full md:w-1/2 py-6 bg-base-100">
                 <div className="flex flex-col items-center">
                     <h3 className="text-3xl font-bold">Register</h3>
                 </div>

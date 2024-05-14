@@ -8,13 +8,13 @@ const PendingAssignment = () => {
     const [submitAssignment,setSubmitAssignment]=useState(loadedSubmittedAssignment);
     
     return (
-        <div className="max-w-7xl mx-auto bg-gradient-to-r from-[#5AB9EA] to-[#C1C4E8] p-6 rounded-xl shadow-2xl my-24">
+        <div className="max-w-7xl mx-6 lg:mx-auto text-black bg-gradient-to-r from-[#5AB9EA] to-[#C1C4E8] p-6 rounded-xl shadow-2xl my-24">
 
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
                     <thead>
-                        <tr>
+                        <tr className="text-black text-lg font-bold">
                             <th></th>
                             <th>Name</th>
                             <th>Title</th>
@@ -26,7 +26,7 @@ const PendingAssignment = () => {
                     </thead>
                     <tbody>
                         {
-                            submitAssignment.map((assignment, index) =><TableBody key={index}
+                            submitAssignment.map((assignment,index) =><TableBody key={index}
                             assignment={assignment}
                             submitAssignment={submitAssignment}
                             setSubmitAssignment={setSubmitAssignment}

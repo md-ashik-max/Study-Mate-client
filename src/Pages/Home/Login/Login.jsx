@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import 'animate.css';
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { IoEyeSharp } from "react-icons/io5";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
@@ -13,10 +13,17 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
-    const { signIn,googleLogin,githubLogin} = useContext(AuthContext);
+    const { user, loading, signIn, googleLogin, githubLogin } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
-    const location = useLocation()
-    const navigate = useNavigate()
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (user) {
+            navigate('/')
+        }
+    }, [user, navigate])
+
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         const email = data.email;
@@ -28,8 +35,8 @@ const Login = () => {
                     title: "Sign in User Successfully",
                     showConfirmButton: false,
                     timer: 1500
-                  });
-                  navigate(location?.state ? location.state : "/")
+                });
+                navigate(location?.state ? location.state : "/")
             })
             .catch(error => {
                 console.error(error)
@@ -40,14 +47,14 @@ const Login = () => {
 
     const loginWithGoogle = () => {
         googleLogin();
-          navigate(location?.state ? location.state : "/")
-          Swal.fire({
+        navigate(location?.state ? location.state : "/")
+        Swal.fire({
             position: "top-end",
             icon: "success",
             title: "Sign in User Successfully",
             showConfirmButton: false,
             timer: 1500
-          });
+        });
 
     };
     const loginWithGithub = () => {
@@ -57,11 +64,11 @@ const Login = () => {
             title: "Sign in User Successfully",
             showConfirmButton: false,
             timer: 1500
-          });
-          navigate(location?.state ? location.state : "/")
+        });
+        navigate(location?.state ? location.state : "/")
 
     };
-
+    if (user || loading) return
 
 
     return (
