@@ -42,8 +42,8 @@ const AssignmentDetails = () => {
         const img = user.photoURL;
         const name = user.displayName;
         const submittedAssignment = { file, text, assignmentName, assignmentMark, img, name, email };
-        console.log(submittedAssignment)
-        fetch('http://localhost:5000/submitted', {
+
+        fetch('https://study-mate-server-liart.vercel.app/submitted', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -52,7 +52,6 @@ const AssignmentDetails = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.insertedId) {
                     toast.success('Assignment Submitted Successfully')
                 }

@@ -67,7 +67,7 @@ const router = createBrowserRouter([
       {
         path: '/mySubmission',
         element: <PrivetRoute><MySubmission></MySubmission></PrivetRoute>,
-        loader: () => fetch('http://localhost:5000/submitted')
+        // loader: () => fetch('http://localhost:5000/submitted',{credentials:'include'})
       },
     ]
   },

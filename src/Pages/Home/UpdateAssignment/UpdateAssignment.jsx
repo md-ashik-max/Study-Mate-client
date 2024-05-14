@@ -25,8 +25,7 @@ const UpdateAssignment = () => {
         const date = form.date.value;
         const email = user.email;
         const updateAssignment = { title, description, mark, image, level, date, email };
-        console.log(updateAssignment);
-        fetch(`http://localhost:5000/assignment/${_id}`, {
+        fetch(`https://study-mate-server-liart.vercel.app/assignment/${_id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
@@ -35,7 +34,6 @@ const UpdateAssignment = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.modifiedCount>0) {
                     Swal.fire({
                         title: 'Success!',

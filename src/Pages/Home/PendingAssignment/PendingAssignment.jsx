@@ -28,6 +28,7 @@ const PendingAssignment = () => {
                         {
                             submitAssignment.map((assignment,index) =><TableBody key={index}
                             assignment={assignment}
+                            index={index}
                             submitAssignment={submitAssignment}
                             setSubmitAssignment={setSubmitAssignment}
                             >

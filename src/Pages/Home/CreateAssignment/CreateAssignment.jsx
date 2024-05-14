@@ -23,8 +23,7 @@ const CreateAssignment = () => {
         const date = form.date.value;
         const email= user.email;
         const newAssignment = { title, description, mark, image, level, date,email };
-        console.log(newAssignment);
-        fetch('http://localhost:5000/assignment',{
+        fetch('https://study-mate-server-liart.vercel.app/assignment',{
             method:'POST',
             headers:{
                 'content-type':'application/json'
@@ -33,7 +32,6 @@ const CreateAssignment = () => {
         })
         .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',

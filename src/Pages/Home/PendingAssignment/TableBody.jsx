@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 
 
 
-const TableBody = ({ assignment, index, submitAssignment, setSubmitAssignment }) => {
+const TableBody = ({ assignment,index, submitAssignment, setSubmitAssignment }) => {
 
     const { user } = useContext(AuthContext);
 

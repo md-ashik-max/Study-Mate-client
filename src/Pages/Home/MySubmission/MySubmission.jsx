@@ -1,20 +1,21 @@
 
+
 import { useContext, useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+// import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 
 
 const MySubmission = () => {
     const { user } = useContext(AuthContext);
-    const loadedSubmission = useLoaderData();
     const [totalSubmission, setTotalSubmission] = useState([]);
 
-    useEffect(() => {
-        const remaining = loadedSubmission.filter(submission => submission.email === user?.email);
-        setTotalSubmission(remaining);
-    }, [loadedSubmission, user?.email]);
-    console.log(totalSubmission)
+    useEffect(()=>{
+        fetch(`https://study-mate-server-liart.vercel.app/submitted/${user?.email}`,{credentials:'include'})
+        .then(res=>res.json())
+        .then(data=>{
+            setTotalSubmission(data)})
+    },[user?.email])
 
 
     return (

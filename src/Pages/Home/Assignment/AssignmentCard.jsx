@@ -12,7 +12,6 @@ const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
     const { user } = useContext(AuthContext)
     const { _id, title, image, description, mark, date, level, email } = assignment;
     const handleDelete = id => {
-        console.log(id)
         if (user.email === email) {
             Swal.fire({
                 title: "Are you sure?",
@@ -25,12 +24,11 @@ const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
             }).then((result) => {
                 if (result.isConfirmed) {
 
-                    fetch(`http://localhost:5000/assignment/${id}`, {
+                    fetch(`https://study-mate-server-liart.vercel.app/assignment/${id}`, {
                         method: 'DELETE'
                     })
                         .then(res => res.json())
                         .then(data => {
-                            console.log(data)
                             if (data.deletedCount > 0) {
                                 Swal.fire({
                                     title: "Deleted!",

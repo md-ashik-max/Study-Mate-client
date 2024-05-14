@@ -1,11 +1,12 @@
 import { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import Swal from "sweetalert2";
 
 
 const GiveMarkContainer = () => {
     const loadedSubmit = useLoaderData();
+    const navigate = useNavigate();
     const { user } = useContext(AuthContext);
     const { _id } = loadedSubmit;
     const handleGivenMark = (e) => {
@@ -13,35 +14,36 @@ const GiveMarkContainer = () => {
         const form = e.target;
         const obtainMark = form.mark.value;
         const feedback = form.feedback.value;
-        const examinerName = user.email;
+        const examinerName = user.displayName;
         console.log(examinerName, obtainMark, feedback)
-        fetch(`http://localhost:5000/submitted/${_id}`, {
+        fetch(`https://study-mate-server-liart.vercel.app/submitted/${_id}`,{
             method: "PATCH",
             headers: {
                 'content-type': 'application/json'
             },
-        body: JSON.stringify({status:'confirm',obtainMark,examinerName,feedback})
+            body: JSON.stringify({ status: 'confirm', obtainMark, examinerName, feedback })
         })
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
+                    navigate("/pending")
                     Swal.fire({
                         title: "Mark has been successfully given.",
                         showClass: {
-                          popup: `
+                            popup: `
                             animate__animated
                             animate__fadeInUp
                             animate__faster
                           `
                         },
                         hideClass: {
-                          popup: `
+                            popup: `
                             animate__animated
                             animate__fadeOutDown
                             animate__faster
                           `
                         }
-                      });
+                    });
 
                 }
             })
