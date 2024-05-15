@@ -13,7 +13,7 @@ const MySubmission = () => {
     const [totalSubmission, setTotalSubmission] = useState([]);
 
     // useEffect(()=>{
-    //     fetch(`http://localhost:5000/submitted/${user?.email}`,{credentials:'include'})
+    //     fetch(`https://study-mate-server-plum.vercel.app/${user?.email}`,{credentials:'include'})
     //     .then(res=>res.json())
     //     .then(data=>{
     //         setTotalSubmission(data)})

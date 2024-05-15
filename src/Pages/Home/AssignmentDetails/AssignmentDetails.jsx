@@ -43,7 +43,7 @@ const AssignmentDetails = () => {
         const name = user.displayName;
         const submittedAssignment = { file, text, assignmentName, assignmentMark, img, name, email };
 
-        fetch('http://localhost:5000/submitted', {
+        fetch('https://study-mate-server-plum.vercel.app/submitted', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

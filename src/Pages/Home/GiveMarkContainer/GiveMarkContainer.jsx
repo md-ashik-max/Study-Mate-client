@@ -15,7 +15,7 @@ const GiveMarkContainer = () => {
         const obtainMark = form.mark.value;
         const feedback = form.feedback.value;
         const examinerName = user.displayName;
-        fetch(`http://localhost:5000/submitted/${_id}`,{
+        fetch(`https://study-mate-server-plum.vercel.app/submitted/${_id}`,{
             method: "PATCH",
             headers: {
                 'content-type': 'application/json'

@@ -15,7 +15,7 @@ const Navbar = () => {
     const myAttempted = allAttempted.filter(attempted=>attempted.email===user?.email)
 
     useEffect(()=>{
-        fetch('http://localhost:5000/submitted')
+        fetch('https://study-mate-server-plum.vercel.app/submitted',{credentials:"include"})
         .then(res=>res.json())
         .then(data=>{
             setAllAttempted(data)})

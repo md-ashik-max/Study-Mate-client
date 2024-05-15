@@ -38,17 +38,17 @@ const router = createBrowserRouter([
       {
         path: '/assignment',
         element: <Assignment></Assignment>,
-        loader: () => fetch('http://localhost:5000/assignment')
+        loader: () => fetch('https://study-mate-server-plum.vercel.app/assignment')
       },
       {
         path: '/assignmentDetails/:id',
         element: <PrivetRoute><AssignmentDetails></AssignmentDetails></PrivetRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
+        loader: ({ params }) => fetch(`https://study-mate-server-plum.vercel.app/assignment/${params.id}`)
       },
       {
         path: '/updateAssignment/:id',
         element: <PrivetRoute><UpdateAssignment></UpdateAssignment></PrivetRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
+        loader: ({ params }) => fetch(`https://study-mate-server-plum.vercel.app/assignment/${params.id}`)
       },
       {
         path: '/create',
@@ -57,17 +57,17 @@ const router = createBrowserRouter([
       {
         path: '/pending',
         element: <PrivetRoute><PendingAssignment></PendingAssignment></PrivetRoute>,
-        loader: () => fetch('http://localhost:5000/submitted')
+        loader: () => fetch('https://study-mate-server-plum.vercel.app/submitted',{credentials:"include"})
       },
       {
         path: '/giveMark/:id',
         element:<GiveMarkContainer></GiveMarkContainer>,
-        loader: ({ params }) => fetch(`http://localhost:5000/submitted/${params.id}`)
+        loader: ({ params }) => fetch(`https://study-mate-server-plum.vercel.app/submitted/${params.id}`)
       },
       {
         path: '/mySubmission',
         element: <PrivetRoute><MySubmission></MySubmission></PrivetRoute>,
-        loader:()=>fetch('http://localhost:5000/submitted')
+        loader:()=>fetch('https://study-mate-server-plum.vercel.app/submitted')
       },
     ]
   },

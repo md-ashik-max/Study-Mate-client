@@ -23,7 +23,7 @@ const CreateAssignment = () => {
         const date = form.date.value;
         const email= user.email;
         const newAssignment = { title, description, mark, image, level, date,email };
-        fetch('http://localhost:5000/assignment',{
+        fetch('https://study-mate-server-plum.vercel.app/assignment',{
             method:'POST',
             headers:{
                 'content-type':'application/json'
