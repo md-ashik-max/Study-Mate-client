@@ -43,7 +43,7 @@ const AssignmentDetails = () => {
         const name = user.displayName;
         const submittedAssignment = { file, text, assignmentName, assignmentMark, img, name, email };
 
-        fetch('https://study-mate-server-liart.vercel.app/submitted', {
+        fetch('http://localhost:5000/submitted', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

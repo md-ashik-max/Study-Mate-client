@@ -57,12 +57,12 @@ const AuthProvider = ({ children }) => {
             setUser(currentUser)
             setLoading(false)
             if (currentUser) {
-                axios.post('https://study-mate-server-liart.vercel.app/jwt', loggedUser, { withCredentials: true })
+                axios.post('http://localhost:5000/jwt', loggedUser, { withCredentials: true })
                     .then(() => {
                     })
             } else{
                  
-                axios.post('https://study-mate-server-liart.vercel.app/logout', loggedUser,{withCredentials:true})
+                axios.post('http://localhost:5000/logout', loggedUser,{withCredentials:true})
                     .then(() => {
                         
                     })

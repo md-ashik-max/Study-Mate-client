@@ -10,14 +10,16 @@ import Swal from "sweetalert2";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
-    const [allAttempted, setAllAttempted] = useState([])
+    const [allAttempted, setAllAttempted] = useState([]);
+
+    const myAttempted = allAttempted.filter(attempted=>attempted.email===user?.email)
 
     useEffect(()=>{
-        fetch(`https://study-mate-server-liart.vercel.app/submitted/${user?.email}`,{credentials:'include'})
+        fetch('http://localhost:5000/submitted')
         .then(res=>res.json())
         .then(data=>{
             setAllAttempted(data)})
-    },[user?.email])
+    },[])
 
     const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");
 
@@ -115,7 +117,7 @@ const Navbar = () => {
                                     {user.photoURL ? <img className="w-12 h-12 rounded-full" src={user.photoURL} alt="" /> : <img className="w-12 h-12 rounded-full" src={userProfile} alt="" />}
                                     <li className="text-lg text-black font-bold my-1">{user.displayName}</li>
                                    
-                                     <li className="text-lg text-black font-bold mb-4">My attempt : {user?allAttempted.length:0}</li>
+                                     <li className="text-lg text-black font-bold mb-4">My attempt : {user?myAttempted?.length:0}</li>
                                    
                                     <Link to='/mySubmission'> <button className="btn mb-3 bg-transparent text-emerald-300 border border-sky-400 hover:text-white  hover:bg-gradient-to-r from-emerald-300 to-sky-400">View Profile</button></Link>
                                 </div>

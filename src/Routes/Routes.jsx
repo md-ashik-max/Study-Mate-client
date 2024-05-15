@@ -61,13 +61,13 @@ const router = createBrowserRouter([
       },
       {
         path: '/giveMark/:id',
-        element: <PrivetRoute><GiveMarkContainer></GiveMarkContainer></PrivetRoute>,
+        element:<GiveMarkContainer></GiveMarkContainer>,
         loader: ({ params }) => fetch(`http://localhost:5000/submitted/${params.id}`)
       },
       {
         path: '/mySubmission',
         element: <PrivetRoute><MySubmission></MySubmission></PrivetRoute>,
-        // loader: () => fetch('http://localhost:5000/submitted',{credentials:'include'})
+        loader:()=>fetch('http://localhost:5000/submitted')
       },
     ]
   },

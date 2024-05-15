@@ -7,28 +7,28 @@ import Swal from 'sweetalert2';
 
 
 
-const TableBody = ({ assignment,index, submitAssignment, setSubmitAssignment }) => {
+const TableBody = ({ assignment, index, submitAssignment, setSubmitAssignment }) => {
 
     const { user } = useContext(AuthContext);
 
-    const { _id, name, assignmentName, assignmentMark, file, status, email } = assignment;
+    const { _id, name, assignmentName, assignmentMark, file, status,email } = assignment;
 
     if (status === 'confirm') {
         const remaining = submitAssignment.filter(subAssignment => subAssignment.status !== 'confirm');
         setSubmitAssignment(remaining);
     }
-    const handleShowAlert = ()=>{
+    const handleShowAlert = () => {
         Swal.fire({
             icon: "error",
             title: "Oops...",
             text: "You cannot mark your own assignment!",
-          });
+        });
     }
 
 
     return (
         <tr>
-            <th>{index+1}</th>
+            <th>{index + 1}</th>
             <td className="text-xl font-bold">{name}</td>
             <td className="text-xl font-bold">{assignmentName}</td>
             <td className="text-xl font-bold">{assignmentMark}</td>

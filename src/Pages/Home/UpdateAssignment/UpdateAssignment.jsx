@@ -25,7 +25,7 @@ const UpdateAssignment = () => {
         const date = form.date.value;
         const email = user.email;
         const updateAssignment = { title, description, mark, image, level, date, email };
-        fetch(`https://study-mate-server-liart.vercel.app/assignment/${_id}`, {
+        fetch(`http://localhost:5000/assignment/${_id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

@@ -24,7 +24,7 @@ const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
             }).then((result) => {
                 if (result.isConfirmed) {
 
-                    fetch(`https://study-mate-server-liart.vercel.app/assignment/${id}`, {
+                    fetch(`http://localhost:5000/assignment/${id}`, {
                         method: 'DELETE'
                     })
                         .then(res => res.json())
