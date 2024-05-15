@@ -9,6 +9,13 @@ live URL : https://study-mate-2766f.web.app
 - Feedback Mechanism: Users receive timely feedback on their assignments through the platform. This can include written comments, annotations directly on submitted documents, or even audio/video feedback for a more personal touch.
 - Analytics and Reporting: A dashboard for both users and administrators to track assignment progress, overall performance, and trends over time. This feature provides insights into user engagement, popular topics, and areas where users may need additional support.
 
+## NPM Packages
+
+- Lottie React
+- Animated CSS
+- AOS 
+- React Hook Form
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
