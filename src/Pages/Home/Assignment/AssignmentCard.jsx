@@ -50,9 +50,9 @@ const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
             });
         }
     }
-    useEffect(()=>{
+    useEffect(() => {
         Aos.init()
-    },[])
+    }, [])
 
     return (
         <div data-aos="zoom-in" className="card bg-base-100 shadow-xl relative">
@@ -63,18 +63,20 @@ const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
             </div>
             <div className="p-4 flex gap-6">
                 <div>
-                    <div>
+                    <div className="h-16">
                         <h2 className="card-title text-2xl font-bold font-playFair">
                             {title}
                         </h2>
                     </div>
-                    <p className="my-4">{description.slice(0, 100)}...</p>
-                    <div className="w-full flex gap-6 items-center">
+                    <div className="h-20">
+                        <p className="my-4">{description.slice(0, 100)}...</p>
+                    </div>
+                    <div className="w-full flex gap-2 md:gap-6 items-center">
                         <Link to={`/updateAssignment/${_id}`}>
                             <button className="btn text-xl text-[#14A76C] border-[#14A76C] bg-transparent hover:bg-[#14A76C] hover:text-white"><FaEdit /></button>
                         </Link>
 
-                        <Link to={`/assignmentDetails/${_id}`}><button className="btn px-12 bg-transparent text-emerald-300 border border-sky-400 hover:text-white  hover:bg-gradient-to-r from-emerald-300 to-sky-400">View Assignment</button></Link>
+                        <Link to={`/assignmentDetails/${_id}`}><button className="btn md:px-12 bg-transparent text-emerald-300 border border-sky-400 hover:text-white  hover:bg-gradient-to-r from-emerald-300 to-sky-400">View Assignment</button></Link>
 
                         <button onClick={() => handleDelete(_id)} className="btn text-xl text-[#C50900] bg-transparent border-[#C50900] hover:bg-[#C50900] hover:text-white"><MdDelete /></button>
                     </div>

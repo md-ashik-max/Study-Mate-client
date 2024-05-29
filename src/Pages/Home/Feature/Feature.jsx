@@ -19,7 +19,7 @@ const Feature = () => {
             <div className="my-12 grid gap-8 grid-cols-1 md:grid-cols-2">
                 <div data-aos="zoom-in-right" className="h-96">
                     <small className="font-bold">STUDY SMARTER, TOGETHER</small>
-                    <h2 className="text-[40px] font-playFair font-bold">Your Ultimate Study Companion</h2>
+                    <h2 className="text-4xl font-playFair font-bold">Your Ultimate Study Companion</h2>
                     <img src="https://i.ibb.co/HNdXCz7/icons8-horizontal-line-100.png" alt="" />
                     <p className="mb-4">With Study Mate, never face academic challenges alone. Connect with peers, share notes, collaborate on projects, and conquer coursework together. Whether you are preparing for exams or working on group assignments, Study Mate provides the support and collaboration tools you need to excel. Join forces with your study mates and unleash your full academic potentia</p>
                     <button className="flex text-xl font-bold items-center hover:bg-transparent border border-[#5680E9] text-white hover:text-[#5680E9] bg-[#5680E9] p-3 rounded-lg">View All Details <span><FaArrowRight></FaArrowRight></span></button>

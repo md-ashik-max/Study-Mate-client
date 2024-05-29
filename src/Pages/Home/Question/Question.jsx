@@ -5,7 +5,7 @@ import { IoCall } from "react-icons/io5";
 
 const Question = () => {
     return (
-        <div className="my-12 max-w-7xl mx-6 lg:mx-auto">
+        <div className="my-24 max-w-7xl mx-6 lg:mx-auto">
             <div className="text-center">
                 <h3 className="text-xl font-bold text-sky-400">STUDY MATE QUERIES</h3>
                 <h1 className="font-playFair text-4xl font-bold">Frequently Asked Questions</h1>

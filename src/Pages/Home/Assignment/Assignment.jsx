@@ -32,7 +32,7 @@ const Assignment = () => {
                 <img className="h-[600px] lg:h-[800px] w-full" src="https://i.ibb.co/jVMcSTN/final-ass-banner.jpg" alt="" />
                 <div className="absolute w-full h-full top-0 left-0 bg-[#0B0C1040]">
                     <div className="md:w-1/2 text-center py-32 mx-6 md:ml-24 lg:ml-80 md:py-40 lg:py-64 text-white">
-                        <h1 className="animate__animated animate__fadeInUp text-4xl font-extrabold font-playFair">Quest for Mastery ,<br />
+                        <h1 className="animate__animated animate__fadeInUp text-5xl font-extrabold font-playFair">Quest for Mastery ,<br />
                             Your Assignment Odyssey Begins Here</h1>
                         <p className="my-8 animate__animated animate__fadeInUp">Discover a comprehensive list of assignments tailored just for you. Dive into a world of tasks and projects designed to challenge and inspire. From academic endeavors to professional pursuits, find everything you need to stay organized and motivated. Your journey starts here</p>
                     </div>
