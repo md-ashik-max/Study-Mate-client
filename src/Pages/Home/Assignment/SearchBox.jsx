@@ -48,14 +48,14 @@ const SearchBox = ({ loadedAssignment, setAssignments }) => {
 
     return (
         <section className="max-w-7xl mx-6 md:mx-12 my-24 lg:mx-auto bg-cyan-500 px-12 py-4 rounded-xl">
-            <div className="grid grid-cols-10 items-center gap-2">
+            <div className="grid grid-cols-5 md:grid-cols-10 items-center gap-2">
                 <input
                     type="text"
                     placeholder="Search ..."
                     onChange={handleChange}
                     value={search}
                     autoComplete="off"
-                    className="w-full px-4 py-2 rounded-md col-span-7"
+                    className="w-full px-4 py-2 rounded-md col-span-2 md:col-span-7"
                 />
 
                 <div className="col-span-2 flex justify-between items-center w-full rounded-xl p-2">

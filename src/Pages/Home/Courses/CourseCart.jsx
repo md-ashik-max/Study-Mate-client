@@ -8,9 +8,9 @@ const CourseCart = ({ course }) => {
     const { name, img, price, rating, lessons, total_students } = course;
     return (
         <div>
-            <div className="flex gap-6 h-64 rounded-2xl shadow-xl hover:border-b-4 border-[#5680E9]">
+            <div className="md:flex gap-6 md:h-64 rounded-2xl shadow-xl hover:border-b-4 border-[#5680E9]">
                 <div>
-                    <figure className='h-64 w-52'><img className='h-full w-full rounded-l-2xl' src={img} alt="Movie" /></figure>
+                    <figure className='md:h-64 md:w-52'><img className='h-full w-full rounded-l-2xl' src={img} alt="Movie" /></figure>
                 </div>
                 <div className="card-body">
                     <div className='flex justify-between'>
