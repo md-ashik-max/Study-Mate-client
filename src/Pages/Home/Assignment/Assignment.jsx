@@ -1,30 +1,31 @@
 import { useLoaderData } from "react-router-dom";
 import AssignmentCard from "./AssignmentCard";
-import { FaAngleDown } from "react-icons/fa";
+// import { FaAngleDown } from "react-icons/fa";
 import { useState } from "react";
+import SearchBox from "./SearchBox";
 
 
 const Assignment = () => {
     const loadedAssignment = useLoaderData();
     const [assignments, setAssignments] = useState(loadedAssignment);
-    const handleAssignmentFilter = filter => {
-        if (filter === 'all') {
-            setAssignments(loadedAssignment);
-        }
-        else if (filter === 'easy') {
-            const filteredAssignments = loadedAssignment.filter(assignment => assignment.level === 'Easy');
-            setAssignments(filteredAssignments);
-        }
-        else if (filter === 'medium') {
-            const filteredAssignments = loadedAssignment.filter(assignment => assignment.level === 'Medium');
-            setAssignments(filteredAssignments);
-        }
-        else if (filter === 'hard') {
-            const filteredAssignments = loadedAssignment.filter(assignment => assignment.level === 'Hard');
-            setAssignments(filteredAssignments);
-        }
+    // const handleAssignmentFilter = filter => {
+    //     if (filter === 'all') {
+    //         setAssignments(loadedAssignment);
+    //     }
+    //     else if (filter === 'easy') {
+    //         const filteredAssignments = loadedAssignment.filter(assignment => assignment.level === 'Easy');
+    //         setAssignments(filteredAssignments);
+    //     }
+    //     else if (filter === 'medium') {
+    //         const filteredAssignments = loadedAssignment.filter(assignment => assignment.level === 'Medium');
+    //         setAssignments(filteredAssignments);
+    //     }
+    //     else if (filter === 'hard') {
+    //         const filteredAssignments = loadedAssignment.filter(assignment => assignment.level === 'Hard');
+    //         setAssignments(filteredAssignments);
+    //     }
 
-    }
+    // }
 
     return (
         <div className="-mt-32">
@@ -42,7 +43,8 @@ const Assignment = () => {
                 <h1 className="text-4xl font-extrabold font-playFair">Assignment Universe</h1>
                 <p className="mt-6"> Explore a galaxy of tasks and projects designed to challenge and inspire. From academic pursuits to professional endeavors, find everything you need to excel and achieve your goals. Welcome to your ultimate assignment destination</p>
             </div>
-            <div className="max-w-7xl mx-6 md:mx-12 lg:mx-auto flex justify-end border-t-2 mb-12">
+            <SearchBox loadedAssignment={loadedAssignment} setAssignments={setAssignments}></SearchBox>
+            {/* <div className="max-w-7xl mx-6 md:mx-12 lg:mx-auto flex justify-end border-t-2 mb-12">
                 <div className="border-x-2 border-b-2 flex justify-between items-center w-52 rounded-xl p-2">
                     <h3 className="font-playFair font-extrabold">Select Level</h3>
                     <div className="dropdown dropdown-end">
@@ -56,7 +58,7 @@ const Assignment = () => {
                     </div>
                 </div>
 
-            </div>
+            </div> */}
 
             <div className="max-w-7xl mx-6 md:mx-12 lg:mx-auto my-16 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {

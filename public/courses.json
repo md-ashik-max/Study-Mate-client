@@ -1,0 +1,52 @@
+[
+    {
+        "_id":"01",
+        "name": "Advanced JavaScript Techniques",
+        "category": "Programming",
+        "price": 99.99,
+        "trainer_name": "John Doe",
+        "img": "https://i.ibb.co/cXLfkHt/advanced-js.webp",
+        "description": "This course dives deep into advanced JavaScript concepts such as closures, prototypes, asynchronous programming, and more. Designed for developers with a solid understanding of basic JavaScript, this course will help you enhance your skills and write more efficient, maintainable code. By the end of this course, you will be able to tackle complex problems and create robust web applications using modern JavaScript techniques.",
+        "lessons": 35,
+        "total_students": 1200,
+        "rating": 4.8
+       
+    },
+    {
+        "_id":"02",
+        "name": "Mastering Web Development with React",
+        "category": "Web Development",
+        "price": 129.99,
+        "trainer_name": "Jane Smith",
+        "img": "https://i.ibb.co/Bttb93J/mastering.png",
+        "description": "In this comprehensive course, you'll learn how to build dynamic, high-performance web applications using React. We'll cover everything from the basics of components, state, and props to advanced topics like hooks, context API, and performance optimization. Perfect for both beginners and experienced developers looking to sharpen their skills, this course will guide you through the entire process of building a real-world project.",
+        "lessons": 40,
+        "total_students": 950,
+        "rating": 4.9
+       
+    },
+    {
+        "_id":"03",
+        "name": "Full-Stack Web Development Bootcamp",
+        "category": "Full-Stack Development",
+        "price": 199.99,
+        "trainer_name": "Alex Johnson",
+        "img": "https://i.ibb.co/Pmg21hC/full-stack-web-development.png",
+        "description": "Join this intensive bootcamp to become a proficient full-stack web developer. Covering both front-end and back-end technologies, this course includes HTML, CSS, JavaScript, React, Node.js, Express, and MongoDB. Through hands-on projects and real-world scenarios, you'll gain the skills needed to build and deploy full-stack applications. Ideal for beginners and intermediates looking to break into web development or advance their careers.",
+        "lessons": 50,
+        "total_students": 1500,
+        "rating": 4.7
+    },
+    {
+        "_id":"04",
+        "name": "UX/UI Design Fundamentals",
+        "category": "Design",
+        "price": 79.99,
+        "trainer_name": "Emily Davis",
+        "img": "https://i.ibb.co/FHM2zVW/ux-ui.webp",
+        "description": "This course provides a thorough introduction to UX/UI design principles and practices. You'll learn about user research, wireframing, prototyping, and the tools used by industry professionals. With a focus on creating user-friendly interfaces, this course is perfect for aspiring designers or anyone looking to improve their design skills. By the end of the course, you'll have a solid understanding of how to create visually appealing and intuitive designs.",
+        "lessons": 25,
+        "total_students": 800,
+        "rating": 4.6
+    }
+]
